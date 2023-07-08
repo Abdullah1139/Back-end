@@ -11,11 +11,11 @@ const url="mongodb+srv://abdullah:123@cluster0.2lu0zix.mongodb.net/";
 
 mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology:true})
 .then(()=>console.log("connected"));
-app.listen(process.env.PORT||1139);
+app.listen(1139, () => console.log(`server running at ${process.env.PORT}`) );
 
 app.use(cors());
 app.use(bodyParser.json({extended: true}))
 app.use(bodyParser.urlencoded({extended:true}))
-app.use('/registration',registration);
+app.use('/registration', registration);
 app.use('/sellerRegistration',sellerRegistration)
 app.use('/product', products)
